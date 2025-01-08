@@ -89,8 +89,9 @@ h1 {
     position: relative;
     overflow: hidden;
     width: 100%;
-    max-width: 400px; /* Adjust as needed */
+    max-width: 800px; /* Adjust as needed */
     margin: auto;
+    height: 400px; /* Set a fixed height for the carousel */
 }
 
 .carousel-images {
@@ -99,9 +100,9 @@ h1 {
 }
 
 .carousel-images img {
-    width: 100%; /* Make the image take the full width of the container */
-    height: auto; /* Maintain the aspect ratio */
-    object-fit: contain; /* Ensure the image fits within the container without stretching */
+    height: 100%; /* Make the image take the full height of the carousel */
+    width: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
 }
 
 .carousel-button {
