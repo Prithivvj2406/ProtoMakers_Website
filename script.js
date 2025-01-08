@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Loading screen logic
+    const loadingScreen = document.getElementById('loading-screen');
+    const tabContent = document.getElementById('tab-content');
+
+    // Show the loading screen for 3 seconds
+    setTimeout(() => {
+        loadingScreen.style.display = 'none'; // Hide the loading screen
+        tabContent.style.display = 'block'; // Show the main content
+    }, 3000); // 3000 milliseconds = 3 seconds
+
+    // Tab functionality
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabs = document.querySelectorAll('.tab');
 
