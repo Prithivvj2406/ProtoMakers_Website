@@ -156,8 +156,8 @@ h1 {
     font-size: 20px;
     color: #666;
     border-radius: 10px;
-    transition: background ```css
-    0.3s ease;
+    transition: ```css
+    background 0.3s ease;
 }
 
 .placeholder:hover {
