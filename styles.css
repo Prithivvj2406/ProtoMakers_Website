@@ -101,8 +101,8 @@ h1 {
 
 .carousel-images img {
     height: 100%; /* Make the image take the full height of the carousel */
-    width: auto; /* Maintain the aspect ratio */
-    object-fit: cover; /* Ensure the image covers the area without stretching */
+    width: 100%; /* Set width to 100% to fill the container */
+    object-fit: contain; /* Ensure the image fits within the container without cropping */
 }
 
 .carousel-button {
