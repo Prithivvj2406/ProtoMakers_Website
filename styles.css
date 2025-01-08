@@ -89,7 +89,7 @@ h1 {
     position: relative;
     overflow: hidden;
     width: 100%;
-    max-width: 800px; /* Adjust as needed */
+    max-width: 400px; /* Adjust as needed */
     margin: auto;
 }
 
