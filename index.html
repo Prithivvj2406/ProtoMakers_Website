@@ -68,6 +68,45 @@
             text-align: center;
             padding: 10px 0;
         }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px; /* Adjust as needed */
+            margin: auto;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            max-width: 100%; /* Ensure images fit within the carousel */
+            height: auto;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -101,8 +140,9 @@
                 <h2>Welcome to <span>ProtoMakers</span></h2>
                 <p>Empowering innovation through cutting-edge additive manufacturing technologies at NAMTECH.</p>
                 <div class="hero-image" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-                    <img src="CLUB_LOGO_REMOVED_BG.png" alt="CLUB LOGO" style="width: 150px; height: auto;">
-                    <img src="Gemini_Generated_Image_ip5sp5ip5sp5ip5s.jpeg" alt="Gemini Generated Image" style="width: 150px; height: auto;">
+                    <img src="CLUB_LOGO_REMOVED_BG.png" alt="CLUB LOGO" style ```html
+="width: 150px; height: auto;">
+                    <img src="Gemini_Generated_Image_ip5sp5ip5ip5sp5ip5s.jpeg" alt="Gemini Generated Image" style="width: 150px; height: auto;">
                 </div>
             </div>
         </section>
@@ -111,21 +151,21 @@
         <section id="gallery" class="tab">
             <div class="container">
                 <h2>Gallery</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <div class="placeholder">Workshop 1</div>
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <img src="W1_1.HEIC" alt="Image 1">
+                        <img src="W1_2.HEIC" alt="Image 2">
+                        <img src="W1_3.HEIC" alt="Image 3">
+                        <img src="W1_4.HEIC" alt="Image 4">
+                        <img src="W1_5.HEIC" alt="Image 5">
+                        <img src="W1_6.HEIC" alt="Image 6">
+                        <img src="W1_7.HEIC" alt="Image 7">
                     </div>
-                    <div class="gallery-item">
-                        <div class="placeholder">Prototype</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder">Competition</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder">IoT Project</div>
-                    </div>
+                    <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
                 </div>
-            </div </section>
+            </div>
+        </section>
 
         <!-- Events Section -->
         <section id="calendar" class="tab">
@@ -267,6 +307,28 @@
                 document.getElementById('tab-content').style.display = 'block';
             }, 3000); // 3000 milliseconds = 3 seconds
         };
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-images img');
+            if (index >= slides.length) {
+                currentSlide = 0; // Loop back to the first slide
+            } else if (index < 0) {
+                currentSlide = slides.length - 1; // Loop to the last slide
+            } else {
+                currentSlide = index;
+            }
+            const offset = -currentSlide * 100; // Calculate offset for sliding effect
+            document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+        }
+
+        function moveSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Show the first slide initially
+        showSlide(currentSlide);
     </script>
 </body>
 </html>
