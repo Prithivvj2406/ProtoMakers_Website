@@ -25,6 +25,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Carousel functionality for the gallery
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.carousel-images img');
+        if (index >= slides.length) {
+            currentSlide = 0; // Loop back to the first slide
+        } else if (index < 0) {
+            currentSlide = slides.length - 1; // Loop to the last slide
+        } else {
+            currentSlide = index;
+        }
+        const offset = -currentSlide * 100; // Calculate offset for sliding effect
+        document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+    }
+
+    function moveSlide(direction) {
+        showSlide(currentSlide + direction);
+    }
+
+    // Attach event listeners to carousel buttons
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+
+    prevButton.addEventListener('click', () => moveSlide(-1));
+    nextButton.addEventListener('click', () => moveSlide(1));
+
+    // Show the first slide initially
+    showSlide(currentSlide);
+
     // Example of dynamically adding events to the calendar section
     const eventCarousel = document.getElementById('event-carousel');
     const events = [
