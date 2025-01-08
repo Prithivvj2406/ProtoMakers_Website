@@ -19,6 +19,19 @@
             padding: 10px 0;
         }
 
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white; /* Change to your preferred background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Ensure it is on top of other content */
+        }
+
         .container {
             width: 80%;
             margin: auto;
@@ -58,6 +71,11 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img src="3D_PRINTING_ANIMATE.gif" alt="Loading...">
+    </div>
+
     <!-- Header -->
     <header id="main-header">
         <div class="container">
@@ -76,7 +94,7 @@
     </nav>
 
     <!-- Tabs Content -->
-    <div id="tab-content">
+    <div id="tab-content" style="display: none;"> <!-- Hide main content initially -->
         <!-- Home Section -->
         <section id="home" class="tab active">
             <div class="container">
@@ -107,8 +125,7 @@
                         <div class="placeholder">IoT Project</div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div </section>
 
         <!-- Events Section -->
         <section id="calendar" class="tab">
@@ -132,7 +149,7 @@
                         <div class="member-info">
                             <h3>Maurya Reddi</h3>
                             <p>Convener</p>
-                            <a href="mailto:C24SMG053@namtech.ac">C24SMG053@namtech.ac</ a>
+                            <a href="mailto:C24SMG053@namtech.ac">C24SMG053@namtech.ac</a>
                         </div>
                     </div>
                     <div class="committee-member">
@@ -238,5 +255,18 @@
             <p>&copy; 2025 ProtoMakers @ NAMTECH. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // JavaScript for loading screen
+        window.onload = function() {
+            // Show the loading screen for 3 seconds
+            setTimeout(function() {
+                // Hide the loading screen
+                document.getElementById('loading-screen').style.display = 'none';
+                // Show the main content
+                document.getElementById('tab-content').style.display = 'block';
+            }, 3000); // 3000 milliseconds = 3 seconds
+        };
+    </script>
 </body>
 </html>
